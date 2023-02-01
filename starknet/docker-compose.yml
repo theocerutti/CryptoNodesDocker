@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  starknet-node:
+    image: eqlabs/pathfinder:latest
+    user: root
+    container_name: starknet-node
+    restart: always
+    ports:
+      - "9545:9545"
+    environment:
+      - RUST_LOG=info
+      - PATHFINDER_ETHEREUM_API_URL=https://mainnet.infura.io/v3/34e952d75369442381557a19e918e2c8
+    volumes:
+      - $HOME/.starknet-node:/usr/share/pathfinder/data
