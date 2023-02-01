@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  celestia-light-node:
+    build: .
+    container_name: celestia-light-node
+    restart: always
+    environment:
+        - NODE_TYPE=light
+        - P2P_NETWORK=mocha
+    ports:
+      - "26659:26659"
