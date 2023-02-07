@@ -4,7 +4,7 @@ services:
   celestia-light-node:
     build: .
     container_name: celestia-light-node
-    restart: always
+    restart: unless-stopped
     environment:
         - NODE_TYPE=light
         - P2P_NETWORK=mocha

@@ -5,7 +5,7 @@ services:
     image: eqlabs/pathfinder:latest
     user: root
     container_name: starknet-node
-    restart: always
+    restart: unless-stopped
     ports:
       - "9545:9545"
     environment:

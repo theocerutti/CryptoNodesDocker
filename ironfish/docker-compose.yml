@@ -4,15 +4,15 @@ services:
     ironfish-node:
         build: "."
         container_name: ironfish-node
-        restart: always
+        restart: unless-stopped
         network_mode: host
         volumes:
           - ~/.ironfish:/root/.ironfish
     ironfish-miner:
         image: ghcr.io/iron-fish/ironfish:latest
         container_name: ironfish-miner
-        restart: always
-        command: ["miners:start", "--datadir", "/root/.ironfish", "-p", "pool.ironfish.network", "-a", "16c274ecb6ee24e1830345e3bb12d3599b7598c9c70e8c1debd664ab8ce5360c"]
+        restart: unless-stopped
+        command: ["miners:start", "--datadir", "/root/.ironfish", "-p", "pool.ironfish.network", "-a", "3911e13db6e585614eed1b2548d7ec8a302756cf0a7db0ef4671b075c22bb7bf"]
         network_mode: host
         volumes:
           - ~/.ironfish:/root/.ironfish
